@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Vault tranform engine FPE API demo</title>
+	</head>
+	<body>
+		<b>Simple Vault tranform engine FPE encode API demo</b><br /><br />
+		Prerequiste: Set up <a href="https://www.vaultproject.io/docs/secrets/transform">tranform engine</a>.<br /><br />
+		<div id="app">
+			Vault addr  <input v-model="addr"  type="text"><br />
+			Vault path  <input v-model="path_encode"  type="text"><br />
+			Vault Token <input v-model="token" type="text"><br />
+			Credit card number <input v-model="encode_ccn" type="text"><br />
+			<button v-on:click="encode">Query</button><br>
+			<dl v-if="resp_encode">
+				<dt>Response</dt><dd>{{ resp_encode.data }}</dd>
+			</dl>
+			<div v-else="resp_encode">No data.</div>
+		<br /><br />
+		<b>Simple Vault tranform engine FPE decode API demo</b><br /><br />
+			Vault addr  <input v-model="addr"  type="text"><br />
+			Vault path  <input v-model="path_decode"  type="text"><br />
+			Vault Token <input v-model="token" type="text"><br />
+			Encoded Credit card number <input v-model="decode_ccn" type="text"><br />
+			<button v-on:click="decode">Query</button><br>
+			<dl v-if="resp_decode">
+				<dt>Response</dt><dd>{{ resp_decode.data }}</dd>
+			</dl>
+			<div v-else="resp_decode">No data.</div>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="api_fpe.js"></script>
+	</body>
+</html>
