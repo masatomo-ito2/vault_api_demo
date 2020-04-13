@@ -1,6 +1,6 @@
 # Vault API demo
 
-* This demo only support Vault token authentication *
+**This demo only support Vault token authentication**
 
 
 ## How to run demo
