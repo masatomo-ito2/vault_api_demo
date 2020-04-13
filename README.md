@@ -20,11 +20,18 @@ Run simple [http server module](https://docs.python.org/2/library/simplehttpserv
 python -m SimpleHTTPServer
 ```
 
+**Note**
+You can just open the index.html in your browser, but make sure the Vault's [CORS setting](https://www.vaultproject.io/api-docs/system/config-cors) is configured.
+
+```shell
+vault write sys/config/cors allowed_origins=*
+```
+
 3. Access demo page.
 
-Access [http://localhost:8000](http://localhost:8000)
+Access [http://localhost:8000](http://localhost:8000) or just open the index.html in your browser.
 
-4. Enter vault related attributes.
+5. Navigate to page and enter vault related attributes.
 
 Enter followings:
 - Valt addr = <vault server address> (Default: http://127.0.0.1:8200)
