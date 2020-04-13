@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Vault POST API demo</title>
+	</head>
+	<body>
+		<b>Simple Vault POST API demo</b> 
+		<div id="app">
+			Vault addr  <input v-model="addr"  type="text"><br />
+			Vault path  <input v-model="path"  type="text"><br />
+			Vault Token <input v-model="token" type="text"><br />
+			Payload <textarea v-model="payload"></textarea><br />
+			<button v-on:click="query">Query</button><br>
+			<dl v-if="resp">
+				<dt>Response</dt><dd>{{ resp }}</dd>
+			</dl>
+			<div v-else="resp">No data.</div>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="api_post.js"></script>
+	</body>
+</html>
