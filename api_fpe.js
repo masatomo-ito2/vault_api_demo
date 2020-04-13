@@ -15,6 +15,7 @@ new Vue(
 		},
 		methods: {
 			cache: false,
+
 			encode: function(event) {
 				 
 				var config = { 
