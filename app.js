@@ -9,6 +9,7 @@ new Vue({
 		resp: null
 	},
 	methods: {
+		cache: false,
 		query: function(event) {
 			 
 			var config = { 
@@ -24,7 +25,6 @@ new Vue({
 					this.resp = response.data;
 					console.log( this.resp );
 			}, (error) => {
-				console.log( error );
 				this.resp.data = error;
 			});
 		}

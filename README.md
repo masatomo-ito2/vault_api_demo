@@ -1,5 +1,8 @@
 # Vault API demo
 
+* This demo only support Vault token authentication *
+
+
 ## How to run demo
 
 1. Clone this repository.
