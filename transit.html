@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Vault transit engine API demo</title>
+	</head>
+	<body>
+		<b>Simple Vault transit engine API demo</b><br /><br />
+		Prerequiste: create encryption key beforehand.<br />
+		<font color="red">Note: To run this demo, you need Vault Enterprise with ADP (Advanced data protection) module enabled.</font><br />
+		<br />
+
+		<div id="app">
+		  <b>Base64 encode/decode</b><br /><br />
+			Base64 <textarea v-model="base64text"></textarea><br />
+			<button @click="encode">Encode</button><br />
+			<button @click="decode">Decode</button><br />
+			<dl v-if="resp_base64">
+				<dt>Decoded text</dt><dd>{{ resp_base64 }}</dd>
+			</dl>
+			<div v-else="resp_encrypt">No data.</div>
+			<br />
+			<br />
+			<b>Simple Vault transt engine encrypt/decrypt API demo</b><br /><br />
+			Vault addr  <input v-model="addr"  type="text" size="32"><br />
+			Vault Token <input v-model="token" type="text" size="32"><br />
+			Vault path  <input v-model="path_decrypt"  type="text" size="32"><br />
+			Encryption key <input v-model="key"  type="text" size="32"><br />
+			Text to encrypt (base64) <textarea v-model="plaintext"></textarea><br />
+			<button v-on:click="encrypt">Encrypt</button><br>
+			<dl v-if="resp_encrypt">
+				<dt>Response</dt><dd>{{ resp_encrypt }}</dd>
+			</dl>
+			<div v-else="resp_encrypt">No data.</div>
+			Text to decrypt (base64) <textarea v-model="ciphertext"></textarea><br />
+			<button v-on:click="decrypt">Decrypt</button><br>
+			<dl v-if="resp_decrypt">
+				<dt>Response</dt><dd>{{ resp_decrypt }}</dd>
+			</dl>
+			<div v-else="resp_decrypt">No data.</div>
+		</div>
+
+		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="api_transit.js"></script>
+	</body>
+</html>
