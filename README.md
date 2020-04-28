@@ -2,6 +2,8 @@
 
 **This demo only supports Vault token authentication**
 
+**I made HTML to be as simple as I can. HTML formatting/beautification are all up to you.**
+
 
 ## How to run demo
 
