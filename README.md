@@ -40,6 +40,48 @@ Enter followings:
 
 Then click 'Query' button.
 
+## How to set Vault transform engine
+
+**Note: Vault transform engine is Enterprise feature.**
+
+1. Enable transform engine
+
+```shell
+vault secrets enable transform
+```
+
+2. Set up template for FPE
+
+```shell
+vault write transform/template/ccn type=regex pattern='(\d{4})-(\d{4})-(\d{4})-(\d{4})' alphabet=numerics
+```
+
+3. Set up transformation
+
+```shell
+vault write transform/transformation/ccn-fpe type=fpe template=ccn tweak_source=internal allowed_roles=payments
+```
+
+4. Set up role
+
+```shell
+vault write transform/role/payments transformations=ccn-fpe
+```
+
+5. Test FPE encode
+
+```shell
+vault write transform/encode/payments value=1111-2222-3333-4444
+```
+
+6. Test FPE decode
+
+```shell
+vault write transform/decode/payments value=7313-6619-5148-5744
+```
+
+
+
 ## Troubleshoot
 
 ### If you get CORS related error
