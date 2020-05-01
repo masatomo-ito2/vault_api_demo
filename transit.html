@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Simple Vault transit engine API demo</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
 		<b>Simple Vault transit engine API demo</b><br /><br />
@@ -10,32 +11,34 @@
 		<br />
 
 		<div id="app">
-		  <b>Base64 encode/decode</b><br /><br />
-			Base64 <textarea v-model="base64text"></textarea><br />
-			<button @click="encode">Encode</button><br />
-			<button @click="decode">Decode</button><br />
-			<dl v-if="resp_base64">
-				<dt>Decoded text</dt><dd>{{ resp_base64 }}</dd>
-			</dl>
-			<div v-else="resp_encrypt">No data.</div>
-			<br />
-			<br />
-			<b>Simple Vault transt engine encrypt/decrypt API demo</b><br /><br />
-			Vault addr  <input v-model="addr"  type="text" size="32"><br />
-			Vault Token <input v-model="token" type="text" size="32"><br />
-			Encryption key <input v-model="key"  type="text" size="32"><br />
-			Text to encrypt (base64) <textarea v-model="plaintext"></textarea><br />
-			<button v-on:click="encrypt">Encrypt</button><br>
-			<dl v-if="resp_encrypt">
-				<dt>Response</dt><dd>{{ resp_encrypt }}</dd>
-			</dl>
-			<div v-else="resp_encrypt">No data.</div>
-			Text to decrypt (base64) <textarea v-model="ciphertext"></textarea><br />
-			<button v-on:click="decrypt">Decrypt</button><br>
-			<dl v-if="resp_decrypt">
-				<dt>Response</dt><dd>{{ resp_decrypt }}</dd>
-			</dl>
-			<div v-else="resp_decrypt">No data.</div>
+			<div class="p-3 mb-2 bg-light text-dark">
+				<b>Base64 encode/decode</b><br /><br />
+				Base64 <textarea v-model="base64text"></textarea><br />
+				<button class="btn btn-primary" @click="encode">Encode</button><br />
+				<button class="btn btn-secondary" @click="decode">Decode</button><br />
+				<dl class="alert alert-primary" v-if="resp_base64">
+					<dt>Decoded text</dt><dd>{{ resp_base64 }}</dd>
+				</dl>
+				<div v-else="resp_encrypt">No data.</div>
+				<br />
+				<br />
+				<b>Simple Vault transt engine encrypt/decrypt API demo</b><br /><br />
+				Vault addr  <input v-model="addr"  type="text" size="32"><br />
+				Vault Token <input v-model="token" type="text" size="32"><br />
+				Encryption key <input v-model="key"  type="text" size="32"><br />
+				Text to encrypt (base64) <textarea v-model="plaintext"></textarea><br />
+				<button class="btn btn-primary" v-on:click="encrypt">Encrypt</button><br>
+				<dl class="alert alert-primary" v-if="resp_encrypt">
+					<dt>Response</dt><dd>{{ resp_encrypt }}</dd>
+				</dl>
+				<div v-else="resp_encrypt">No data.</div>
+				Text to decrypt (base64) <textarea v-model="ciphertext"></textarea><br />
+				<button class="btn btn-primary" v-on:click="decrypt">Decrypt</button><br>
+				<dl class="alert alert-primary" v-if="resp_decrypt">
+					<dt>Response</dt><dd>{{ resp_decrypt }}</dd>
+				</dl>
+				<div v-else="resp_decrypt">No data.</div>
+			</div>
 		</div>
 
 		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>

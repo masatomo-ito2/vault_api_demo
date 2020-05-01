@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Simple Vault tranform engine FPE API demo</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrit    y="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
 		<b>Simple Vault tranform engine FPE encode API demo</b><br /><br />
@@ -12,28 +13,29 @@
 		<br />
 
 		<div id="app">
-			Vault addr  <input v-model="addr"  type="text" size="32"><br />
-			Vault path  <input v-model="path_encode"  type="text" size="32"><br />
-			Vault Token <input v-model="token" type="text" size="32"><br />
-			Credit card number <input v-model="encode_ccn" type="text" size="32"><br />
-			<button v-on:click="encode">Query</button><br>
-			<dl v-if="resp_encode">
-				<dt>Response</dt><dd>{{ resp_encode.data }}</dd>
-			</dl>
-			<div v-else="resp_encode">No data.</div>
+			<div class="p-3 mb-2 bg-light text-dark">
+				Vault addr  <input v-model="addr"  type="text" size="32"><br />
+				Vault path  <input v-model="path_encode"  type="text" size="32"><br />
+				Vault Token <input v-model="token" type="text" size="32"><br />
+				Credit card number <input v-model="encode_ccn" type="text" size="32"><br />
+				<button class="btn btn-primary" v-on:click="encode">Query</button><br>
+				<dl class="alert alert-primary" v-if="resp_encode">
+					<dt>Response</dt><dd>{{ resp_encode.data }}</dd>
+				</dl>
+				<div class="alert alert-warning" v-else="resp_encode">No data.</div>
+				<br /><br />
 
-		<br /><br />
-
-		<b>Simple Vault tranform engine FPE decode API demo</b><br /><br />
-			Vault addr  <input v-model="addr"  type="text" size="32"><br />
-			Vault path  <input v-model="path_decode"  type="text" size="32"><br />
-			Vault Token <input v-model="token" type="text" size="32"><br />
-			Encoded Credit card number <input v-model="decode_ccn" type="text" size="32"><br />
-			<button v-on:click="decode">Query</button><br>
-			<dl v-if="resp_decode">
-				<dt>Response</dt><dd>{{ resp_decode.data }}</dd>
-			</dl>
-			<div v-else="resp_decode">No data.</div>
+				<b>Simple Vault tranform engine FPE decode API demo</b><br /><br />
+				Vault addr  <input v-model="addr"  type="text" size="32"><br />
+				Vault path  <input v-model="path_decode"  type="text" size="32"><br />
+				Vault Token <input v-model="token" type="text" size="32"><br />
+				Encoded Credit card number <input v-model="decode_ccn" type="text" size="32"><br />
+				<button class="btn btn-primary" v-on:click="decode">Query</button><br>
+				<dl class="alert alert-primary" v-if="resp_decode">
+					<dt>Response</dt><dd>{{ resp_decode.data }}</dd>
+				</dl>
+				<div class="alert alert-warning" v-else="resp_decode">No data.</div>
+			</div>
 		</div>
 
 		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
